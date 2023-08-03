@@ -8,3 +8,5 @@ Desarrollo pureba tecnica para la empresa Redarbor
 5. Se implementa el patron repositorio generico para las consultas y para los metodos de escritura.
 6. Se trabaja con EntityFrameworkCore para los metodos de escritura y Dapper para los metodos de lectura (desde la clases GenericRepository).
 7. Se realiza 5 pruebas unitarias cada una para un metodo GET, GETById, POST, PUT, DELETE en el proyecto RedarborTechnicalTest.UnitTestApi.
+8. Se maneja una base de datos sql server en la nube y se hace la migración para crear las tablas. Se agrega al final del apartado el script y bacpac. de la base de datos.
+9. Se maneja dockerCompose para ejecutar en docker la solución.
