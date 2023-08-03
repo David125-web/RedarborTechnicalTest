@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using RedarborTechnicalTest.Core.Dtos;
 using RedarborTechnicalTest.Core.Services.Commands;
@@ -14,25 +15,7 @@ namespace RedarborTechnicalTest.UnitTestApi
         [Fact]
         public async Task GetEmployeeByIdSuccess()
         {
-            //Si falla la prueba es porque esta encontrando un empleado existente.
-
-            var employee = new CreateEmployeeCommand
-            {
-                CompanyId = 15,
-                CreatedOn = DateTime.Now,
-                DeletedOn = DateTime.Now,
-                Email = "string",
-                Fax = "string",
-                Name = "string",
-                Lastlogin = DateTime.Now,
-                Password = "string",
-                PortalId = 0,
-                RoleId = 0,
-                StatusId = true,
-                Telephone = "string",
-                UpdatedOn = DateTime.Now,
-                Username = "david01"
-            };
+            var employee = UseEmployeeAutomatic();
             var employeeCreado = await this.TestClient.PostAsync("/api/redarbor", employee, new JsonMediaTypeFormatter());
             employeeCreado.EnsureSuccessStatusCode();
             var message = employeeCreado.Content.ReadAsStringAsync().Result;
@@ -68,26 +51,9 @@ namespace RedarborTechnicalTest.UnitTestApi
             employees.EnsureSuccessStatusCode();
             var response = employees.Content.ReadAsStringAsync().Result;
             var responseInquiry = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<EmployeeDto>>(response);
-            var employee = new CreateEmployeeCommand
-            {
-                CompanyId = 30,
-                CreatedOn = DateTime.Now,
-                DeletedOn = DateTime.Now,
-                Email = "string",
-                Fax = "string",
-                Name = "string",
-                Lastlogin = DateTime.Now,
-                Password = "string",
-                PortalId = 0,
-                RoleId = 0,
-                StatusId = true,
-                Telephone = "string",
-                UpdatedOn = DateTime.Now,
-                Username = "pruebadavid"
-            };
+            var employee =  UseEmployeeAutomatic();
             var employeeCreate = await this.TestClient.PostAsync("/api/redarbor", employee, new JsonMediaTypeFormatter());
             employeeCreate.EnsureSuccessStatusCode();
-
             var employeesTest2 = await this.TestClient.GetAsync($"api/redarbor");
             employeesTest2.EnsureSuccessStatusCode();
             var responseTest2 = employeesTest2.Content.ReadAsStringAsync().Result;
@@ -101,23 +67,7 @@ namespace RedarborTechnicalTest.UnitTestApi
             int idEmployee = 1;
             try
             {
-                var employee = new CreateEmployeeCommand
-                {
-                    CompanyId = 30,
-                    CreatedOn = DateTime.Now,
-                    DeletedOn = DateTime.Now,
-                    Email = "Jennifer@hotmail.com",
-                    Fax = "string",
-                    Name = "string",
-                    Lastlogin = DateTime.Now,
-                    Password = "string",
-                    PortalId = 0,
-                    RoleId = 0,
-                    StatusId = true,
-                    Telephone = "string",
-                    UpdatedOn = DateTime.Now,
-                    Username = "JenniferRamirez"
-                };
+                var employee = UseEmployeeAutomatic();
                 var employeePut = await this.TestClient.PutAsync($"/api/redarbor/{idEmployee}", employee, new JsonMediaTypeFormatter());
                 employeePut.EnsureSuccessStatusCode();
 

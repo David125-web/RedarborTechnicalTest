@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
+using RedarborTechnicalTest.Core.Services.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,26 @@ namespace RedarborTechnicalTest.UnitTestApi.Configuration
             }
 
             Disposed = true;
+        }
+        protected static CreateEmployeeCommand UseEmployeeAutomatic()
+        {
+            return new CreateEmployeeCommand()
+            {
+                CompanyId = 1,
+                CreatedOn = DateTime.Now,
+                DeletedOn = DateTime.Now,
+                Email = "string",
+                Fax = "string",
+                Name = "string",
+                Lastlogin = DateTime.Now,
+                Password = "string",
+                PortalId = 0,
+                RoleId = 0,
+                StatusId = true,
+                Telephone = "string",
+                UpdatedOn = DateTime.Now,
+                Username = "david01"
+            };
         }
     }
 }
