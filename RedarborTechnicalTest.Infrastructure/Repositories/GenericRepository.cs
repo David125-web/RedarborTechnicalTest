@@ -5,9 +5,11 @@ using Microsoft.Extensions.Configuration;
 using RedarborTechnicalTest.Core.Entities;
 using RedarborTechnicalTest.Core.Interfaces;
 using RedarborTechnicalTest.Infrastructure.Data;
+using System.Data;
 
 namespace RedarborTechnicalTest.Infrastructure.Repositories
 {
+
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly ApplicationEmployeeDbContext _context;
@@ -25,48 +27,26 @@ namespace RedarborTechnicalTest.Infrastructure.Repositories
         }
         public async Task<IEnumerable<T>> GetAll()
         {
-            try
+            string query = $"SELECT * FROM {_tableName}";
+            using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
             {
-                return await _entities.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                return null;
+                connection.Open();
+                return connection.Query<T>(query).ToList();
             }
         }
         public async Task<T> GetById(int id)
         {
-            return await _entities.FindAsync(id);
+            string query = $"SELECT * FROM {_tableName} WHERE {IdKeyColumnName} = @id ";
+            using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                connection.Open();
+                return connection.Query<T>(query, new { id }).FirstOrDefault();
+            }
         }
-        //public async Task<IEnumerable<T>> GetAll()
-        //{
-        //    try
-        //    {
-        //        string query = $"SELECT * FROM {_tableName}";
-        //        using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
-        //        {
-        //            connection.Open();
-        //            return connection.Query<T>(query).ToList();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        var f = 0;
-        //        return null;
-        //    }
-        //}
-        //public async Task<T?> GetById(int id)
-        //{
-        //    string query = $"SELECT * FROM {_tableName} WHERE {IdKeyColumnName} = @id ";
-        //    using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
-        //    {
-        //        connection.Open();
-        //        return connection.Query<T>(query,new {id}).FirstOrDefault();
-        //    }
-        //}
         public async Task<T> Add(T entity)
         {
             _entities.Add(entity);
+            _context.Entry(entity).State = EntityState.Added;
             await _context.SaveChangesAsync();
             return entity;
         }
@@ -79,7 +59,7 @@ namespace RedarborTechnicalTest.Infrastructure.Repositories
         public async Task Delete(T entity)
         {
             _entities.Remove(entity);
-            await _context.SaveChangesAsync();
+             await _context.SaveChangesAsync();
         }
     }
 }

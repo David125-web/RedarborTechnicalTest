@@ -4,6 +4,7 @@ namespace RedarborTechnicalTest.Core.Dtos
 {
     public class EmployeeDto
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public int CompanyId { get; set; }

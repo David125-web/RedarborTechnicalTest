@@ -29,6 +29,7 @@ namespace RedarborTechnicalTest.Core.Services.EventHandlers
         public async Task<IEnumerable<EmployeeDto>> Handle(GetEmployeeQuery query, CancellationToken cancellationToken)
         {
             var employees = await _employeeRepository.GetAll();
+            if (employees == null) throw new BusinessException() { CodeResponse = HttpStatusCode.NotFound, ErrorMessage = $"No se encuentro ningun empleado." };
             return _mapper.Map<IEnumerable<EmployeeDto>>(employees);
         }
     }

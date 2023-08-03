@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RedarborTechnicalTest.Core.Dtos;
 using RedarborTechnicalTest.Core.Services.Commands;
 using RedarborTechnicalTest.Core.Services.Querys;
+using RedarborTechnicalTest.Core.Wrappers;
 using static RedarborTechnicalTest.Api.Contracts.ApiRoutes;
 
 namespace RedarborTechnicalTest.Api.Controllers
@@ -20,24 +21,25 @@ namespace RedarborTechnicalTest.Api.Controllers
         [Route(EmployeeRoutes.GetEmployee)]
         public async Task<IActionResult> GetEmployees()
         {
-            return Ok(await _mediator.Send(new GetEmployeeQuery()));
+            var response = await _mediator.Send(new GetEmployeeQuery());
+            return Ok(response.ToList());
         }
         [HttpGet]
         [Route(EmployeeRoutes.GetEmployeeById)]
         public async Task<IActionResult> GetEmployee(int id)
         {
-            return Ok(await _mediator.Send(new GetEmployeeByIdQuery(id)));
+            var response = await _mediator.Send(new GetEmployeeByIdQuery(id));
+            return Ok(response);
         }
         [HttpPost]
         [Route(EmployeeRoutes.AddEmployee)] 
-        public async Task<IActionResult> AddEmployee([FromBody]EmployeeDto employee)
+        public async Task<IActionResult> AddEmployee(CreateEmployeeCommand employee)
         {
-            await _mediator.Send(new CreateEmployeeCommand(employee));
-            return Ok(employee);
+            return Ok(await _mediator.Send(employee));
         }
         [HttpPut]
         [Route(EmployeeRoutes.UpdateEmployee)]
-        public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeDto employee)
+        public async Task<IActionResult> UpdateEmployee(int id, EmployeeDto employee)
         {
             return Ok(await _mediator.Send(new UpdateEmployeeCommand(id,employee)));
         }

@@ -3,17 +3,7 @@ version: '3.4'
 networks:
   backend:
 
-services:
-  RedarborDB:
-    container_name: Redarbor-DB
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    environment:
-        - ACCEPT_EULA=Y
-        - SA_PASSWORD=password@12345#
-    networks:
-        - backend
-    ports:
-        - 8001:1433 
+services: 
   redarbortechnicaltest.api:
     container_name: redarbortechnicaltest-api
     image: ${DOCKER_REGISTRY-}redarbortechnicaltestapi
@@ -25,8 +15,9 @@ services:
     ports:
         - 8002:80 
     environment:
-        - DB_HOST=RedarborDB
-        - DB_NAME=EMPLOYEE
-        - DB_SA_PASSWORD=password@12345#
+        - DB_HOST=microservices-test-david.database.windows.net
+        - DB_NAME=RedarborDB
+        - DB_SA_USER=microservices1028
+        - DB_SA_PASSWORD=Prueba1234.
 
 

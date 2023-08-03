@@ -2,6 +2,7 @@
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
+using RedarborTechnicalTest.Core.Dtos;
 using RedarborTechnicalTest.Core.Entities;
 using RedarborTechnicalTest.Core.Exceptions;
 using RedarborTechnicalTest.Core.Interfaces;
@@ -10,7 +11,7 @@ using System.Net;
 
 namespace RedarborTechnicalTest.Core.Services.EventHandlers
 {
-    public class CreateEmployeeHandler: IRequestHandler<CreateEmployeeCommand, Unit>
+    public class CreateEmployeeHandler: IRequestHandler<CreateEmployeeCommand, EmployeeDto>
     {
 
         private readonly IMapper _mapper;
@@ -25,11 +26,12 @@ namespace RedarborTechnicalTest.Core.Services.EventHandlers
             _employeeRepository = employeeRepository;
             _validators = validators;
         }
-        public async Task<Unit> Handle(CreateEmployeeCommand command, CancellationToken cancellationToken)
+        public async Task<EmployeeDto> Handle(CreateEmployeeCommand command, CancellationToken cancellationToken)
         {
-            var employee = _mapper.Map<EmployeeEntity>(command.employeeDto);
-            await _employeeRepository.Add(employee);
-            return Unit.Value;
+            var employee = _mapper.Map<EmployeeEntity>(command);
+            var employeeCreado = await _employeeRepository.Add(employee);
+            var employeeDto = _mapper.Map<EmployeeDto>(employeeCreado);
+            return employeeDto;
         }
     }
 }

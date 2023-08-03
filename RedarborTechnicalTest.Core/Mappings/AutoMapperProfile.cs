@@ -15,7 +15,7 @@ namespace RedarborTechnicalTest.Core.Mappings
         public AutoMapperProfile()
         {
             CreateMap<EmployeeEntity, EmployeeDto>().ReverseMap()
-                .ForMember(des => des.Id, opt => opt.MapFrom(x => x.Id))
+                .ForMember(des => des.Id, opt => opt.MapFrom(x=>x.Id))
                 .ForMember(des => des.CompanyId, opt => opt.MapFrom(x => x.CompanyId))
                 .ForMember(des => des.CreatedOn, opt => opt.MapFrom(x => x.CreatedOn))
                 .ForMember(des => des.DeletedOn, opt => opt.MapFrom(x => x.DeletedOn))

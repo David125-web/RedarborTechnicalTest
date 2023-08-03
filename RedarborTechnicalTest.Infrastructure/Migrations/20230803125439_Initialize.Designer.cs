@@ -12,7 +12,7 @@ using RedarborTechnicalTest.Infrastructure.Data;
 namespace RedarborTechnicalTest.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationEmployeeDbContext))]
-    [Migration("20230803115840_Initialize")]
+    [Migration("20230803125439_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

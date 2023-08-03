@@ -27,14 +27,17 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 #region ParametersDb
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
 var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+var dbUser = Environment.GetEnvironmentVariable("DB_SA_USER");
 var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
-var connectionString = $"Data Source={dbHost};Initial Catalog={dbName}; User ID=sa; Password={dbPassword}";
+var connectionString = $"Data Source={dbHost};Initial Catalog={dbName}; User ID={dbUser}; Password={dbPassword};Integrated Security = false";
 #endregion
 builder.Services.AddDbContext<ApplicationEmployeeDbContext>(opt =>
-//opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
-opt.UseSqlServer(connectionString));
-// opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    //opt.UseSqlServer(connectionString));
+    opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    });
 
 builder.Services.AddControllers();
 
@@ -63,3 +66,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+public partial class Program { }

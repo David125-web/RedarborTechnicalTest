@@ -15,19 +15,19 @@ namespace RedarborTechnicalTest.Core.Validators.Commands
             RuleFor(x => x)
                 .NotEmpty();
 
-            RuleFor(x => x.employeeDto.CompanyId)
+            RuleFor(x => x.CompanyId)
                 .NotNull()
                 .WithMessage("El campo CompanyId no puede ser nulo");
-            RuleFor(x => x.employeeDto.Email)
+            RuleFor(x => x.Email)
                  .NotNull()
                  .WithMessage("El campo Email, no puede ser nulo");
-            RuleFor(x => x.employeeDto.Password)
+            RuleFor(x => x.Password)
                 .NotNull()
                 .WithMessage("El campo Password no puede ser nulo");
-            RuleFor(x => x.employeeDto.PortalId)
+            RuleFor(x => x.PortalId)
                 .NotNull()
                 .WithMessage("El campo PortalId no puede ser nulo");
-            RuleFor(x => x.employeeDto.RoleId)
+            RuleFor(x => x.RoleId)
                 .NotNull()
                 .WithMessage("El campo RoleId no puede ser nulo");
         }
