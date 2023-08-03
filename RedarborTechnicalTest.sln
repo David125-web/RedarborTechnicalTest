@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedarborTechnicalTest.Api", "RedarborTechnicalTest.Api\RedarborTechnicalTest.Api.csproj", "{38DC433E-8D45-4FEA-ADA2-B6F7A5EDA9CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedarborTechnicalTest.Api", "RedarborTechnicalTest.Api\RedarborTechnicalTest.Api.csproj", "{38DC433E-8D45-4FEA-ADA2-B6F7A5EDA9CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedarborTechnicalTest.Core", "RedarborTechnicalTest.Core\RedarborTechnicalTest.Core.csproj", "{DC143B05-5159-4230-87DC-2D25CFA81F1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedarborTechnicalTest.Core", "RedarborTechnicalTest.Core\RedarborTechnicalTest.Core.csproj", "{DC143B05-5159-4230-87DC-2D25CFA81F1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedarborTechnicalTest.Infrastructure", "RedarborTechnicalTest.Infrastructure\RedarborTechnicalTest.Infrastructure.csproj", "{1159BEA8-F42E-4D2C-B44B-308CE5B81A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedarborTechnicalTest.Infrastructure", "RedarborTechnicalTest.Infrastructure\RedarborTechnicalTest.Infrastructure.csproj", "{1159BEA8-F42E-4D2C-B44B-308CE5B81A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedarborTechnicalTest.UnitTest", "RedarborTechnicalTest.UnitTest\RedarborTechnicalTest.UnitTest.csproj", "{A14A6E0E-7304-452E-9B18-DD72EB707EA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedarborTechnicalTest.UnitTestApi", "RedarborTechnicalTest.UnitTestApi\RedarborTechnicalTest.UnitTestApi.csproj", "{DF3F35A7-E18E-4BE6-B683-CC755526386B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9C9D2342-E10D-4C9C-AC51-2DD2BD302FDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +31,14 @@ Global
 		{1159BEA8-F42E-4D2C-B44B-308CE5B81A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1159BEA8-F42E-4D2C-B44B-308CE5B81A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1159BEA8-F42E-4D2C-B44B-308CE5B81A1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A14A6E0E-7304-452E-9B18-DD72EB707EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A14A6E0E-7304-452E-9B18-DD72EB707EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A14A6E0E-7304-452E-9B18-DD72EB707EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A14A6E0E-7304-452E-9B18-DD72EB707EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF3F35A7-E18E-4BE6-B683-CC755526386B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3F35A7-E18E-4BE6-B683-CC755526386B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF3F35A7-E18E-4BE6-B683-CC755526386B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF3F35A7-E18E-4BE6-B683-CC755526386B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9D2342-E10D-4C9C-AC51-2DD2BD302FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9D2342-E10D-4C9C-AC51-2DD2BD302FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9D2342-E10D-4C9C-AC51-2DD2BD302FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9D2342-E10D-4C9C-AC51-2DD2BD302FDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
