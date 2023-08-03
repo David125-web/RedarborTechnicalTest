@@ -10,3 +10,5 @@ Desarrollo pureba tecnica para la empresa Redarbor
 7. Se realiza 5 pruebas unitarias cada una para un metodo GET, GETById, POST, PUT, DELETE en el proyecto RedarborTechnicalTest.UnitTestApi.
 8. Se maneja una base de datos sql server en la nube y se hace la migración para crear las tablas. Se agrega al final del apartado el script y bacpac. de la base de datos.
 9. Se maneja dockerCompose para ejecutar en docker la solución.
+10. Se realiza creación de excepciones personalizadas BusinessException.
+Se va a agregar la imagen en dockerHub para que puedan descargar la imagen y correr la aplicación en un contenedor.
