@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using RedarborTechnicalTest.Core.Entities;
 using RedarborTechnicalTest.Core.Interfaces;
 using RedarborTechnicalTest.Infrastructure.Data;
-using System.Data;
 
 namespace RedarborTechnicalTest.Infrastructure.Repositories
 {
@@ -59,7 +58,7 @@ namespace RedarborTechnicalTest.Infrastructure.Repositories
         public async Task Delete(T entity)
         {
             _entities.Remove(entity);
-             await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

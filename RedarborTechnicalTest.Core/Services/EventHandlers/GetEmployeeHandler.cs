@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using FluentValidation;
-using FluentValidation.Results;
 using MediatR;
 using RedarborTechnicalTest.Core.Dtos;
 using RedarborTechnicalTest.Core.Entities;
@@ -29,7 +28,7 @@ namespace RedarborTechnicalTest.Core.Services.EventHandlers
         public async Task<IEnumerable<EmployeeDto>> Handle(GetEmployeeQuery query, CancellationToken cancellationToken)
         {
             var employees = await _employeeRepository.GetAll();
-            if (employees == null) throw new BusinessException() { CodeResponse = HttpStatusCode.NotFound, ErrorMessage = $"No se encuentro ningun empleado." };
+            if (employees.Count() == 0) throw new BusinessException() { CodeResponse = HttpStatusCode.NotFound, ErrorMessage = $"No se encontro ningun empleado." };
             return _mapper.Map<IEnumerable<EmployeeDto>>(employees);
         }
     }

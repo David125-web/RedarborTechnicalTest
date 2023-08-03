@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedarborTechnicalTest.Core"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedarborTechnicalTest.Infrastructure", "RedarborTechnicalTest.Infrastructure\RedarborTechnicalTest.Infrastructure.csproj", "{1159BEA8-F42E-4D2C-B44B-308CE5B81A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedarborTechnicalTest.UnitTestApi", "RedarborTechnicalTest.UnitTestApi\RedarborTechnicalTest.UnitTestApi.csproj", "{DF3F35A7-E18E-4BE6-B683-CC755526386B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedarborTechnicalTest.UnitTestApi", "RedarborTechnicalTest.UnitTestApi\RedarborTechnicalTest.UnitTestApi.csproj", "{DF3F35A7-E18E-4BE6-B683-CC755526386B}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9C9D2342-E10D-4C9C-AC51-2DD2BD302FDE}"
 EndProject

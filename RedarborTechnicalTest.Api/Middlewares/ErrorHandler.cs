@@ -30,7 +30,7 @@ namespace RedarborTechnicalTest.Api.Middlewares
                 var response = context.Response;
                 response.ContentType = "application/json";
                 var responseModel = new ErrorDTO();
-                var responseGeneric = new Response<List<string>>(new List<string>());
+                var responseGeneric = new Response<List<string>>();
 
                 switch (error)
                 {

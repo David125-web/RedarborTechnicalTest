@@ -13,7 +13,7 @@ services:
     networks:
         - backend
     ports:
-        - 8002:80 
+        - 5024:80 
     environment:
         - DB_HOST=microservices-test-david.database.windows.net
         - DB_NAME=RedarborDB
