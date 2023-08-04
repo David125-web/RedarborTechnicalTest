@@ -13,5 +13,5 @@ Desarrollo pureba tecnica para la empresa Redarbor
 10. Se realiza creación de excepciones personalizadas BusinessException.
 11. Se va a agregar la imagen en dockerHub para que puedan descargar la imagen y correr la aplicación en un contenedor.
     Lineas de comando:
-    docker push davidramirez28/redarbortechnicaltestapi
-    docker run -p 80:3000 davidramirez28/redarbortechnicaltestapi:latest
+    1. docker push davidramirez28/redarbortechnicaltestapi
+    2. docker run -p 80:3000 davidramirez28/redarbortechnicaltestapi:latest
